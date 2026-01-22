@@ -26,83 +26,21 @@ const LoveButton = () => {
 
   return (
     <div className="flex flex-col items-center gap-8 relative mt-8">
-      {/* Main Button with Framer Motion */}
-      <motion.button
-        onClick={triggerConfetti}
-        className="relative px-16 py-6 text-2xl font-bold text-white rounded-full overflow-hidden cursor-pointer"
-        style={{
-          background: 'linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #ff6b9d 100%)',
-          backgroundSize: '200% 200%',
-          boxShadow: '0 10px 40px rgba(255, 107, 157, 0.5)',
-        }}
-        whileHover={{ 
-          scale: 1.08,
-          boxShadow: '0 15px 60px rgba(255, 107, 157, 0.7)',
-        }}
-        whileTap={{ scale: 0.95 }}
-        animate={{
-          backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-        }}
-        transition={{
-          backgroundPosition: {
-            duration: 3,
-            repeat: Infinity,
-            ease: 'linear',
-          },
-          scale: {
-            type: 'spring',
-            stiffness: 400,
-            damping: 10,
-          }
-        }}
-      >
-        {/* Floating hearts */}
-        <motion.span
-          className="inline-block text-3xl mr-3"
-          animate={{
-            y: [0, -8, 0],
-            rotate: [0, 10, -10, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        >
-          ❤️
-        </motion.span>
+      {/* Main Button - Clean Tailwind Design */}
+      <div className="relative">
+        {/* Glow effect layer */}
+        <div className="absolute -inset-4 bg-gradient-to-r from-pink-600 via-rose-500 to-red-600 rounded-full opacity-75 blur-2xl animate-pulse"></div>
         
-        <span className="relative z-10">Click Me!</span>
-        
-        <motion.span
-          className="inline-block text-3xl ml-3"
-          animate={{
-            y: [0, -8, 0],
-            rotate: [0, -10, 10, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 0.3,
-          }}
+        {/* Button */}
+        <button
+          onClick={triggerConfetti}
+          className="relative flex items-center gap-4 px-14 py-5 bg-gradient-to-br from-pink-500 via-rose-500 to-red-500 hover:from-pink-600 hover:via-rose-600 hover:to-red-600 text-white text-2xl font-bold rounded-full shadow-2xl shadow-pink-500/50 hover:shadow-pink-600/60 transform hover:scale-105 active:scale-95 transition-all duration-200 ease-out border-2 border-pink-300/50"
         >
-          ❤️
-        </motion.span>
-
-        {/* Shine overlay */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30"
-          initial={{ x: '-100%' }}
-          animate={{ x: '200%' }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            repeatDelay: 1,
-            ease: 'easeInOut',
-          }}
-        />
-      </motion.button>
+          <span className="text-3xl animate-bounce">❤️</span>
+          <span className="tracking-wide">Click Me!</span>
+          <span className="text-3xl animate-bounce delay-100">❤️</span>
+        </button>
+      </div>
 
       {/* Click counter */}
       <AnimatePresence>
