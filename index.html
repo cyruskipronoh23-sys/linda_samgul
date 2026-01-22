@@ -3,10 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Love You</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Animated Background</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, red, blue, green, yellow);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
 </head>
-<body class="flex items-center justify-center h-screen bg-gray-100">
-    <h1 class="text-5xl font-bold text-purple-600">I love you</h1>
+<body class="flex items-center justify-center h-screen">
+    <button id="confettiButton" class="bg-white border-2 border-black px-4 py-2 rounded hover:bg-gray-200">Hi Linda, click this button</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti/dist/confetti.browser.min.js"></script>
+    <script>
+        document.getElementById('confettiButton').onclick = function() {
+            confetti();
+            alert('I love you\nfrom Norman ;p');
+        };
+    </script>
 </body>
 </html>
